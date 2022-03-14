@@ -1,0 +1,19 @@
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 300px;
+  grid-gap: 10px;
+  padding: 10px;
+  background-color: rgb(0, 78, 245);
+
+}
+
+.grid-container>div {
+  background-color: rgba(245, 247, 248, 0.8);
+  text-align: center;
+  padding: 20px 0;
+}
