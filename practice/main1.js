@@ -1,9 +1,9 @@
 //class Item
 
 class List {
-  constructor(name,price) {
+  constructor(name, price) {
     this.name = name
-    this.price= price
+    this.price = price
   }
 }
 
@@ -13,13 +13,14 @@ class ShoppingCart {
   constructor() {
     this.items = []
   }
-  update(item,quantity) {
-    for(let i = 0; i < this.items.length; i++) {
+  update(item, quantity) {
+    for (let i = 0; i < this.items.length; i++) {
       let existingItemAndQuantity = this.items[i]
-      if(existingItemAndQuantity === list.name) {
+      if (existingItemAndQuantity.item.name === item.name) {
         existingItemAndQuantity.quantity = quantity
         return
       }
+    }
       this.items.push(
         {
           "item": item,
@@ -28,4 +29,21 @@ class ShoppingCart {
       )
     }
   }
-}
+
+  const addToCart = (cart, item, quantity) => {
+    cart.push(item, quantity)
+    refreshCart(cart)
+  }
+
+  const refreshCart = (cart) => {
+    let cartDOM = document.getElementbyId("cart")
+    cartDOM.innerHTML = ""
+    console.log(cartDOM)
+    for(let i = 0; i < cart.items.length; i++) {
+      const item = cart.items[i]
+      console.log(item)
+      let el = document.createElement("p")
+    el.innerHTML = `${item.item.name} - ${item.item.price * item.quantity}`
+    cartDOM.appendChild(el)
+    }
+  }

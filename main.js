@@ -27,17 +27,17 @@ class ShoppingCart {
   }
 }
 
-function addItemToCart(cart, item, quantity) {
+const addItemToCart = (cart, item, quantity) => {
   cart.update(item, quantity)
   refreshCart(cart)
 }
 
 
-function refreshCart(cart) {
+const refreshCart = (cart) => {
   let cartDOM = document.getElementById("cart")
   cartDOM.innerHTML = ""
   console.log(cartDOM)
-  for(let i = 0; i < cart.items.length; ++i) {
+  for(let i = 0; i < cart.items.length; i++) {
     const item = cart.items[i]
     console.log(item)
     let el = document.createElement("p")
