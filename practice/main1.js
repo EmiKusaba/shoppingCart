@@ -1,6 +1,6 @@
 //class Item
 
-class List {
+class Item {
   constructor(name, price) {
     this.name = name
     this.price = price
@@ -30,13 +30,13 @@ class ShoppingCart {
     }
   }
 
-  const addToCart = (cart, item, quantity) => {
-    cart.push(item, quantity)
+  const addItemToCart = (cart, item, quantity) => {
+    cart.update(item, quantity)
     refreshCart(cart)
   }
 
   const refreshCart = (cart) => {
-    let cartDOM = document.getElementbyId("cart")
+    let cartDOM = document.getElementById("cart")
     cartDOM.innerHTML = ""
     console.log(cartDOM)
     for(let i = 0; i < cart.items.length; i++) {
@@ -46,4 +46,25 @@ class ShoppingCart {
     el.innerHTML = `${item.item.name} - ${item.item.price * item.quantity}`
     cartDOM.appendChild(el)
     }
+  }
+
+  const availableItems = [
+    new Item("Banana", 1.00),
+    new Item("Apple", 2.00),
+    new Item("Milk", 3.00),
+  ]
+  
+  let cart = new ShoppingCart()
+  
+  let listDOM = document.getElementById("list")
+  for(let i = 0; i < availableItems.length; ++i) {
+    const item = availableItems[i]
+    let el = document.createElement("p")
+    el.innerHTML = `${item.name} - $${item.price}`
+    let addToCart = document.createElement("span")
+    addToCart.className = "material-icons"
+    addToCart.innerHTML = "add_shopping_cart"
+    addToCart.addEventListener("click", ()=>addItemToCart(cart, item, 1))
+    el.appendChild(addToCart)
+    listDOM.appendChild(el)
   }
