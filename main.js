@@ -10,25 +10,34 @@ class ShoppingCart {
     this.items = []
   }
 
-  update(item, quantity) {
+  add(item) {
     for(let i = 0; i < this.items.length; i++) {
       let existingItemAndQuantity = this.items[i]
       if( existingItemAndQuantity.item.name === item.name ) {
-        existingItemAndQuantity.quantity = quantity
+        existingItemAndQuantity.quantity += 1
         return
       }
     }
     this.items.push(
       {
         "item": item,
-        "quantity": quantity
+        "quantity": 1
       }
     )
   }
+
+  getTotalCost() {
+    let totalCost = []
+
+    for(let i = 0; i < this.items.length; i++) {
+      let itemAndQuantity = this.items[i]
+      totalCost += itemAndQuantity.quantity * itemAndQuantity.item.price
+    }
+  }
 }
 
-const addItemToCart = (cart, item, quantity) => {
-  cart.update(item, quantity)
+const addItemToCart = (cart, item) => {
+  cart.add(item)
   refreshCart(cart)
 }
 
@@ -36,14 +45,15 @@ const addItemToCart = (cart, item, quantity) => {
 const refreshCart = (cart) => {
   let cartDOM = document.getElementById("cart")
   cartDOM.innerHTML = ""
-  console.log(cartDOM)
   for(let i = 0; i < cart.items.length; i++) {
     const item = cart.items[i]
     console.log(item)
     let el = document.createElement("p")
-    el.innerHTML = `${item.item.name} - ${item.item.price * item.quantity}`
+    el.innerHTML = `${item.quantity}x ${item.item.name} - $${item.item.price * item.quantity}`
     cartDOM.appendChild(el)
   }
+
+
 }
 
 const availableItems = [
@@ -52,7 +62,7 @@ const availableItems = [
   new Item("Milk", 3.00),
 ]
 
-let cart = new ShoppingCart()
+let myCart = new ShoppingCart()
 
 let listDOM = document.getElementById("list")
 for(let i = 0; i < availableItems.length; ++i) {
@@ -62,7 +72,7 @@ for(let i = 0; i < availableItems.length; ++i) {
   let addToCart = document.createElement("span")
   addToCart.className = "material-icons"
   addToCart.innerHTML = "add_shopping_cart"
-  addToCart.addEventListener("click", ()=>addItemToCart(cart, item, 1))
+  addToCart.addEventListener("click", ()=>addItemToCart(myCart, item))
   el.appendChild(addToCart)
   listDOM.appendChild(el)
 }

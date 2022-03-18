@@ -64,7 +64,7 @@ class ShoppingCart {
     let addToCart = document.createElement("span")
     addToCart.className = "material-icons"
     addToCart.innerHTML = "add_shopping_cart"
-    addToCart.addEventListener("click", ()=>addItemToCart(cart, item, 1))
+    addToCart.addEventListener("click", ()=>addItemToCart(myCart, item, 1))
     el.appendChild(addToCart)
     listDOM.appendChild(el)
   }
