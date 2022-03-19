@@ -27,12 +27,14 @@ class ShoppingCart {
   }
 
   getTotalCost() {
-    let totalCost = []
+    let totalCost = 0
 
     for(let i = 0; i < this.items.length; i++) {
       let itemAndQuantity = this.items[i]
       totalCost += itemAndQuantity.quantity * itemAndQuantity.item.price
     }
+
+    return totalCost
   }
 }
 
@@ -52,8 +54,8 @@ const refreshCart = (cart) => {
     el.innerHTML = `${item.quantity}x ${item.item.name} - $${item.item.price * item.quantity}`
     cartDOM.appendChild(el)
   }
-
-
+  let totalDOM = document.getElementById("total")
+  totalDOM.innerHTML = `<h4>$${cart.getTotalCost()}</h4>`
 }
 
 const availableItems = [
