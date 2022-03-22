@@ -38,8 +38,8 @@ class ShoppingCart {
   }
 }
 
-const addItemToCart = (cart, item) => {
-  cart.add(item)
+const addItemToCart = (cart, item, quantity) => {
+  cart.add(item, quantity)
   refreshCart(cart)
 }
 
