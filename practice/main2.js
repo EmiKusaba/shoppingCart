@@ -34,12 +34,22 @@ class ShoppingCart {
   }
 }
 
-const addItemToCart = () => {
-
+const addItemToCart = (cart, item, quantity) => {
+cart.add(item, quantity)
+refreshCart(cart)
 }
 
-const refreshCart = () => {
+const refreshCart = (cart) => {
+let cartDOM = document.getElementsById("cart")
+cartDOM.innerHTML = ""
+for( i = 0; i < cart.items.length; i++) {
+  const item = cart.items[i]
 
+  let quantityDOM = document.createElement("div")
+  quantityDOM.style = ".grid-column: 1 / 2;"
+  quantityDOM.innerHTML = `${item.quantity} x`
+  cartDOM.appendChild(quantityDOM)
+}
 }
 
 const availableItems = [
