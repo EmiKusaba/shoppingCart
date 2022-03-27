@@ -53,7 +53,11 @@ for( i = 0; i < cart.items.length; i++) {
 }
 
 const availableItems = [
-
+new Item("Banana", 1.00),
+new Item("Strawberry Pie", 2.00),
+new Item("Chocochip Cookie", 3.00),
+new Item("Water", 1.00),
+new Item("Lemonade", 2.00)
 ]
 
 let myCart = new ShoppingCart()
