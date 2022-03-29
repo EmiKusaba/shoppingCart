@@ -17,7 +17,7 @@ class ShoppingCart {
     for (let i = 0; i < this.items.length; i++) {
       let exsistingItemAndQuantity = this.items[i]
       if (exsistingItemAndQuantity.item.name === item.name) {
-        existingItemAndQuantity.quantity += 1
+        exsistingItemAndQuantity.quantity += 1
         return
       }
     }
@@ -30,17 +30,24 @@ class ShoppingCart {
   }
 
   getTotalCost() {
-
+    let totalCost = 0
+  
+    for(let i = 0; i < this.items.length; i++) {
+      let itemAndQuantity = this.items[i]
+      totalCost += itemAndQuantity.quantity * itemAndQuantity.item.price
+    }
+    return totalCost
   }
 }
 
+  
 const addItemToCart = (cart, item, quantity) => {
   cart.add(item, quantity)
   refreshCart(cart)
 }
 
 const refreshCart = (cart) => {
-  let cartDOM = document.getElementsById("cart")
+  let cartDOM = document.getElementById("cart")
   cartDOM.innerHTML = ""
   for (i = 0; i < cart.items.length; i++) {
     const item = cart.items[i]
@@ -49,8 +56,21 @@ const refreshCart = (cart) => {
     quantityDOM.style = ".grid-column: 1 / 2;"
     quantityDOM.innerHTML = `${item.quantity} x`
     cartDOM.appendChild(quantityDOM)
+
+    let nameDOM = document.createElement("div")
+    nameDOM.style = ".grid-culumn: 2 / 3;"
+    nameDOM.innerHTML = `${item.item.name}`
+    cartDOM.appendChild(nameDOM)
+
+    let costDOM = document.createElement("div")
+    costDOM.style = ".grid-column: 3 / 4;"
+    costDOM.innerHTML = `$${item.quantity * item.item.price}`
+    cartDOM.appendChild(costDOM)
   }
+  let totalDOM = document.getElementById("total")
+  totalDOM.innerHTML = `<h4>$${cart.getTotalCost()}</h4>`
 }
+
 
 const availableItems = [
   new Item("Banana", 1.00),
@@ -81,7 +101,7 @@ for (let i = 0; i < availableItems.length; i++) {
   addToCartDOM.style = "grid-column: 3 / 4"
   addToCartDOM.className = "material-icons"
   addToCartDOM.innerHTML = "add_shopping_cart"
-  addToCartDOM.addEventListener("click", () => addToCartDOM(myCart, item))
+  addToCartDOM.addEventListener("click", () => addItemToCart(myCart, item))
   listDOM.appendChild(addToCartDOM)
 
 }
