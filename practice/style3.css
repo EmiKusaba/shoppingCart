@@ -4,13 +4,17 @@ body{
 
 .grid-container{
   display: grid;
-  grid-template-columns: repeat(3,33%);
+  grid-template-columns: repeat(3, auto);
   grid-template-rows: 350px;
-  background-color: powderblue;
+  background-color: yellow;
+  grid-gap: 10px;
 }
 
-.grid-item{
-  padding:15px;
+
+.grid-container>div {
+  background-color: powderblue;
+  text-align: center;
+  padding: 20px 0;
 }
 
 #list {
