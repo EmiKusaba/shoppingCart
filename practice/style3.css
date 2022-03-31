@@ -1,0 +1,24 @@
+body{
+  font-family: 'Roboto Slab', serif;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(3,33%);
+  grid-template-rows: 350px;
+  background-color: powderblue;
+}
+
+.grid-item{
+  padding:15px;
+}
+
+#list {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+#cart {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
