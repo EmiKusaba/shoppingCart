@@ -44,3 +44,31 @@ class ShoppingCart {
 const refreshCart = () => {
 
 }
+
+const availableItems = [
+  new Item("Banana", 2.00),
+  new Item("Apple", 2.00),
+  new Item("Lemon", 2.00),
+  new Item("Orange", 2.00),
+  new Item("Strawberry", 2.00)
+]
+
+let myCart = new ShoppingCart
+
+let listDOM = document.getElementById("list")
+for(let i = 0; i < availableItems.length; i++) {
+  const item = availableItems[i]
+
+  let nameDOM = document.createElement("div")
+  nameDOM.style = "grid-column: 1 / 2;"
+  nameDOM.innerHTML = `${item.name}`
+  listDOM.appendChild(nameDOM)
+
+  let priceDOM = document.createElement("div")
+  priceDOM.style = "grid-column: 2 / 3;"
+  priceDOM.innerHTML = `$${item.price}`
+  listDOM.appendChild(priceDOM)
+
+  let addToCartDOM = document.createElement("div")
+  addToCartDOM.style = "grid-column: 3 / 4;"
+}
