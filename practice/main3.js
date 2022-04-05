@@ -31,14 +31,19 @@ class ShoppingCart {
 
 
   getTotalCost() {
-
+    let totalCost = 0;
+    for (let i = 0; i < this.items.length; i++) {
+      let itemAndQuantity = this.items[i]
+      totalCost += itemAndQuantity.quantity * itemAndQuantity.item.price
+    }
+    return totalCost
   }
+}
 
-  addItemToCart(cart, item, quantity) {
-    let cart = []
-    cart.add(item, quantity)
-    refreshCart(cart)
-  }
+
+const addItemToCart = (cart, item, quantity) => {
+  cart.add(item, quantity)
+  refreshCart(cart)
 }
 
 const refreshCart = () => {
@@ -50,13 +55,13 @@ const availableItems = [
   new Item("Apple", 2.00),
   new Item("Lemon", 2.00),
   new Item("Orange", 2.00),
-  new Item("Strawberry", 2.00)
+  new Item("Strawberry", 2.00),
 ]
 
 let myCart = new ShoppingCart
 
 let listDOM = document.getElementById("list")
-for(let i = 0; i < availableItems.length; i++) {
+for (let i = 0; i < availableItems.length; i++) {
   const item = availableItems[i]
 
   let nameDOM = document.createElement("div")
@@ -73,7 +78,7 @@ for(let i = 0; i < availableItems.length; i++) {
   addToCartDOM.style = "grid-column: 3 / 4;"
   addToCartDOM.className = "material-icons"
   addToCartDOM.innerHTML = "add_shopping_cart"
-  addToCartDOM.addEventListener("click", ()=>addItemToCart(myCart, item))  
+  addToCartDOM.addEventListener("click", () => addItemToCart(myCart, item))
   listDOM.appendChild(addToCartDOM)
 
 }
