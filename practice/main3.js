@@ -59,18 +59,18 @@ const refreshCart = (cart) => {
   for(let i = 0; i < cart.itemAndQuantities.length; i++) {
     const item = cart.itemAndQuantities[i] 
 
-    let quantityDOM = document.createElement('div')
-    quantityDOM.style = "grid-column: 1 / 2;"
-    quantityDOM.innnerHTML = `${item.quantity}x`
+    let quantityDOM = document.createElement("div")
+    quantityDOM.style = ".grid-column: 1 / 2;"
+    quantityDOM.innerHTML = `${item.quantity} x`
     cartDOM.appendChild(quantityDOM)
 
     let nameDOM = document.createElement("div")
-    nameDOM.style = "grid-column: 2 / 3;"
+    nameDOM.style = ".grid-column: 2 / 3;"
     nameDOM.innerHTML = `${item.item.name}`
     cartDOM.appendChild(nameDOM)
 
     let costDOM = document.createElement("div")
-    costDOM.style = "grid-column: 3 / 4;"
+    costDOM.style = ".grid-column: 3 / 4;"
     costDOM.innerHTML = `$${item.quantity * item.item.price}`
     cartDOM.appendChild(costDOM)
   }
