@@ -9,8 +9,30 @@ class Item {
 //Shopping Cart
 class ShoppingCart {
   constructor(){
-    this.items = []
+    this.itemAndQuantities = []
   }
+  add(item){
+    for(let i = 0; i < this.itemAndQuantities.length; i++) {
+      let exsistingItemAndQuantity = this.itemAndQuantities[i]
+      if(exsistingItemAndQuantity.item.name === item.name) {
+        exsistingItemAndQuantity += 1
+        return
+      }
+      this.itemAndQuantities.push(
+        new ItemAndQuantity(item, 1)
+      )
+    }
+  }
+
+  getTotalCost() {
+
+  }
+}
+
+//refreshCart 
+
+const refreshCart = (cart) => {
+
 }
 
 //availableItem
@@ -53,4 +75,4 @@ for(let i = 0; i < availableitemAndQuantities.length; i++) {
 }
 
 
-//ShoppingCart DOM
+
