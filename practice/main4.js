@@ -25,19 +25,54 @@ class ShoppingCart {
   }
 
   getTotalCost() {
+    let totalCost = 0
+    for(let i = 0; this.itemAndQuantities.length; i++) {
+      let itemAndQuantity  = this.itemAndQuantities[i]
+      totalcost += itemAndQuantity.item.price * itemAndQuantity.quantity
 
+    }
+    return totalCost
   }
+}
+
+//addItemToCart
+
+const addItemToCart = (cart,item) =>{
+cart.add(item)
+refreshCart(cart)
 }
 
 //refreshCart 
 
 const refreshCart = (cart) => {
+let cartDOM  =document.getElementById("cart")
+cartDOM.innerHTML = ""
+for(let i = 0; i < cart.itemAndQuantities.length; i++) {
+  const item = cart.itemAndQuantities[i]
+  
+  let quantityDOM = document.createElement("div")
+  quantityDOM.style = ".grid-culumn 1 / 2;"
+  quantityDOM.innerHTML = `${item.quantity} x`
+  cartDOM.appendChild(quantityDOM)
 
+  let nameDOM = document.createElement("div")
+  quantityDOM.style = ".grid-culumn 2 / 3;"
+  nameDOM.innerHTML = `${item.item.name}`
+  cartDOM.appendChild(nameDOM)
+
+  let costDOM = document.createElement("div")
+  costDOM.style = ".gris-culum 3 / 4;" 
+  costDOM.innerHTML = `${item.quantity * item.item.price}`
+  cartDOM.appendChild(costDOM)
+
+}
+let totalDOM = document.getElementById("total")
+totalDOM.innerHTML = `<h4>${cart.getTotalCost()}</h4>`
 }
 
 //availableItem
 
-let availableitemAndQuantities = [
+let availableItems = [
 new Item("Tomato", 1.00),
 new Item ("Cabbage", 1.00),
 new Item ("Lemon", 1.00),
@@ -52,8 +87,8 @@ let myCart  = new ShoppingCart
 //ListDOM
 
 let listDOM = document.getElementById("list")
-for(let i = 0; i < availableitemAndQuantities.length; i++) {
-  const item = availableitemAndQuantities[i]
+for(let i = 0; i < availableItems.length; i++) {
+  const item = availableItems[i]
 
 
   let nameDOM = document.createElement("div")

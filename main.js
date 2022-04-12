@@ -74,7 +74,7 @@ const refreshCart = (cart) => {
   totalDOM.innerHTML = `<h4>$${cart.getTotalCost()}</h4>`
 }
 
-const availableitemAndQuantities = [
+const availableItems = [
   new Item("Banana", 1.00),
   new Item("Apple", 2.00),
   new Item("Milk", 3.00),
@@ -83,8 +83,8 @@ const availableitemAndQuantities = [
 let myCart = new ShoppingCart()
 
 let listDOM = document.getElementById("list")
-for(let i = 0; i < availableitemAndQuantities.length; ++i) {
-  const item = availableitemAndQuantities[i]
+for(let i = 0; i < availableItems.length; ++i) {
+  const item = availableItems[i]
 
   let nameDOM = document.createElement("div")
   nameDOM.style = "grid-column: 1 / 2;"
