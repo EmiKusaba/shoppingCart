@@ -1,0 +1,29 @@
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: 300px;
+  grid-gap: 10px;
+  padding: 10px;
+  background-color: brown;
+
+}
+
+.grid-container>div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+}
+
+#list {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+#cart {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
