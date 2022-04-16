@@ -20,10 +20,24 @@ class ShoppingCart {
   constructor() {
     this.ItemAndQuantities = []
   }
+
+  add(item) {
+    for (let i = 0; i < this.itemAndQuantities.length; i++) {
+      let existingItemAndQuantity = this.itemAndQuantities[i]
+      if (existingItemAndQuantity.item.name === item.name) {
+        existingItemAndQuantity.quantity += 1
+        return
+      }
+    }
+    this.itemAndQuantities.push(
+      new ItemAndQuantity(item, 1)
+    )
+  }
+
+  getTotalCost() {
+
+  }
 }
-
-
-
 //availableItem
 let availableItems = [
   new Item("Goma", 1.00),
