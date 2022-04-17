@@ -44,6 +44,13 @@ class ShoppingCart {
     return totalCost
   }
 }
+
+const addItemToCart = (cart,item) => {
+  cart.add(item)
+  refreshCart(cart)
+  }
+
+
 //availableItem
 let availableItems = [
   new Item("Goma", 1.00),
@@ -76,3 +83,23 @@ for (let i = 0; i < availableItems.length; i++) {
   listDOM.appendChild(addToCartDOM)
 }
 
+//refreshCart
+
+const refreshCart = (cart) => {
+  let cartDOM = document.createElement("div")
+  cartDOM.innerHTML = ""
+  for(let i = 0; i < cart.itemAndQuantities.length; i++) {
+    const item = cart.itemAndQuantities[i]
+
+    let quantityDOM = document.createElement("div")
+    quantityDOM.style = "grid-column: 1/ 2"
+    quantityDOM.innerHTML = `${item.quantity} x`
+    cartDOM.appendChild(quantityDOM)
+
+    let nameDOM = document.createElement("div")
+    nameDOM.style = "grid-column: 2 / 3"
+    nameDOM.innerHTML = `${item.item.name}`
+    cartDOM.appendChild(nameDOM)
+  }
+}
+ 
