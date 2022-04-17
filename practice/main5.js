@@ -35,7 +35,13 @@ class ShoppingCart {
   }
 
   getTotalCost() {
+    let totalCost = 0
 
+    for(let i = 0; i < this.itemAndQuantities.length; i++) {
+      let itemAndQuantity = this.itemAndQuantities[i]
+      totalCost += itemAndQuantity.quantity * itemAndQuantity.item.price
+    }
+    return totalCost
   }
 }
 //availableItem
