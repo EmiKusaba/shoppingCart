@@ -1,0 +1,30 @@
+body {
+ font-family: 'Roboto Slab', serif;
+  font-family: 'Square Peg', cursive;;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: 300px;
+  grid-gap: 10px;
+  padding: 10px;
+  background-color: black;
+
+}
+
+.grid-container>div {
+  background-color: rgb(211, 208, 208);
+  text-align: center;
+  padding: 20px 0;
+}
+
+#list {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+#cart {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
