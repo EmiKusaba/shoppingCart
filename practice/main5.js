@@ -18,7 +18,7 @@ class ItemAndQuantity {
 //ShoppingCart
 class ShoppingCart {
   constructor() {
-    this.ItemAndQuantities = []
+    this.itemAndQuantities = []
   }
 
   add(item) {
@@ -50,6 +50,34 @@ const addItemToCart = (cart,item) => {
   refreshCart(cart)
   }
 
+  //refreshCart
+
+const refreshCart = (cart) => {
+  let cartDOM = document.getElementById("cart")
+  cartDOM.innerHTML = ""
+  for(let i = 0; i < cart.itemAndQuantities.length; i++) {
+    const item = cart.itemAndQuantities[i]
+
+    let quantityDOM = document.createElement("div")
+    quantityDOM.style = "grid-column: 1/ 2"
+    quantityDOM.innerHTML = `${item.quantity} x`
+    cartDOM.appendChild(quantityDOM)
+
+    let nameDOM = document.createElement("div")
+    nameDOM.style = "grid-column: 2 / 3"
+    nameDOM.innerHTML = `${item.item.name}`
+    cartDOM.appendChild(nameDOM)
+
+    let costDOM = document.createElement("div")
+    costDOM.style = "grid-column: 3 / 4"
+    costDOM.innerHTML = `$${item.item.price * item.quantity}`
+    cartDOM.appendChild(costDOM)
+  }
+  let totalDOM = document.getElementById("total")
+  totalDOM.innerHTML = `<h4>$${cart.getTotalCost()}</h4>`
+}
+ 
+
 
 //availableItem
 let availableItems = [
@@ -79,27 +107,7 @@ for (let i = 0; i < availableItems.length; i++) {
   addToCartDOM.style = "grid-column: 3 / 4;"
   addToCartDOM.className = "material-icons"
   addToCartDOM.innerHTML = "add_shopping_cart"
-  addToCartDOM.addEventListener("click", () => addItemToCart(mycart, item))
+  addToCartDOM.addEventListener("click", () => addItemToCart(myCart, item))
   listDOM.appendChild(addToCartDOM)
 }
 
-//refreshCart
-
-const refreshCart = (cart) => {
-  let cartDOM = document.createElement("div")
-  cartDOM.innerHTML = ""
-  for(let i = 0; i < cart.itemAndQuantities.length; i++) {
-    const item = cart.itemAndQuantities[i]
-
-    let quantityDOM = document.createElement("div")
-    quantityDOM.style = "grid-column: 1/ 2"
-    quantityDOM.innerHTML = `${item.quantity} x`
-    cartDOM.appendChild(quantityDOM)
-
-    let nameDOM = document.createElement("div")
-    nameDOM.style = "grid-column: 2 / 3"
-    nameDOM.innerHTML = `${item.item.name}`
-    cartDOM.appendChild(nameDOM)
-  }
-}
- 
