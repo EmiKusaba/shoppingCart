@@ -57,6 +57,21 @@ refreshCart(cart)
 
 //refreshCart
 
+let cartDOM = document.getElementById("cart")
+cartDOM.innerHTML = ""
+for(let i = 0; i < cart.itemAndQuantities.length; i++) {
+  const item = cart.itemAndQuantities[i]
+
+  let quantityDOM = document.createElement("div")
+  quantityDOM.style = "grid-column: 1 / 2"
+  quantity.innnerHTML = `${item.quantity} x`
+  cartDOM.appendChild(quantityDOM)
+
+  let nameDOM = document.createElement("div")
+  nameDOM.style = "grid-column 2 / 3"
+  nameDOM.innerHTML = `${item.ite.name}`
+  cartDOM.appendChild(nameDOM)
+}
 
 
 //ListDOM
