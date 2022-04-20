@@ -48,4 +48,19 @@ class ShoppingCart {
   }
 }
 
+//addItemToCart
+
+const addItemToCart = (cart, item) => {
+cart.add(item)
+refreshCart(cart)
+}
+
+//refreshCart
+
+
+
 //ListDOM
+
+
+
+
