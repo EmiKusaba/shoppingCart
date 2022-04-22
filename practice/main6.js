@@ -84,14 +84,14 @@ totalDOM.innerHTML = `<h4>${cart.getTotalCost()}</h4>`
 
 //availableItems
 
-let availableItems = [
+const availableItems = [
   new Item ("Addidas Sneaker", 100.00),
   new Item ("Nike Sneaker", 150.00),
   new Item ("New Balance", 180.00),
   new Item ("Puma", 120.00),
 ]
 
-let myCart = new ShoppingCart
+let myCart = new ShoppingCart()
 
 //ListDOM
 
@@ -100,21 +100,21 @@ for(let i = 0; i < availableItems.length; i++) {
   const item = availableItems[i]
 
   let nameDOM = document.createElement("div")
-  nameDOM.style = "grid-column: 1 /2"
+  nameDOM.style = "grid-column: 1 / 2;"
   nameDOM.innerHTML = `${item.name}`
   listDOM.appendChild(nameDOM)
 
   let priceDOM = document.createElement("div")
-  priceDOM.style = "grid-column: 2 / 3"
+  priceDOM.style = "grid-column: 2 / 3;"
   priceDOM.innerHTML = `$${item.price}`
   listDOM.appendChild(priceDOM)
 
-  let addTocartDOM = document.createElement("div")
-  addTocartDOM.style = "grid-column: 3 / 4"
-  addTocartDOM.class = "material-icons"
-  addTocartDOM.innnerHTML = "add_shopping_cart"
-  addTocart.addEventLisner("click", ()=>addItemToCart(mycart,item))
-  listDOM.appendChild(addTocartDOM)
+  let addToCartDOM = document.createElement("div")
+  addToCartDOM.style = "grid-column: 3 / 4;"
+  addToCartDOM.className = "material-icons"
+  addToCartDOM.innerHTML = "add_shopping_cart"
+  addToCartDOM.addEventListener("click", ()=>addItemToCart(myCart, item))  
+  listDOM.appendChild(addToCartDOM)
 
 
 }
