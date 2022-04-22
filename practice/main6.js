@@ -56,6 +56,7 @@ refreshCart(cart)
 }
 
 //refreshCart
+const refreshCart = (cart) => {
 
 let cartDOM = document.getElementById("cart")
 cartDOM.innerHTML = ""
@@ -68,9 +69,17 @@ for(let i = 0; i < cart.itemAndQuantities.length; i++) {
   cartDOM.appendChild(quantityDOM)
 
   let nameDOM = document.createElement("div")
-  nameDOM.style = "grid-column 2 / 3"
+  nameDOM.style = "grid-column: 2 / 3"
   nameDOM.innerHTML = `${item.ite.name}`
   cartDOM.appendChild(nameDOM)
+
+  let costDOM = document.createElement("div")
+  costDOM.style = "grid-column: 3 / 4"
+  costDOM.innerHTML = `${item.quantity * item.item.price}`
+  cartDOM.appendChild(costDOM)
+}
+totalDOM = document.createElement("div")
+totalDOM.innerHTML = `<h4>${cart.getTotalCost()}</h4>`
 }
 
 
