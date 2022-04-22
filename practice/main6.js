@@ -82,8 +82,42 @@ totalDOM = document.createElement("div")
 totalDOM.innerHTML = `<h4>${cart.getTotalCost()}</h4>`
 }
 
+//availableItems
+
+let availableItems = [
+  new Item ("Addidas Sneaker", 100.00),
+  new Item ("Nike Sneaker", 150.00),
+  new Item ("New Balance", 180.00),
+  new Item ("Puma", 120.00),
+]
+
+let myCart = new ShoppingCart
 
 //ListDOM
+
+const listDOM = document.getElementById("list")
+for(let i = 0; i < availableItems.length; i++) {
+  const item = availableItems[i]
+
+  let nameDOM = document.createElement("div")
+  nameDOM.style = "grid-column: 1 /2"
+  nameDOM.innerHTML = `${item.name}`
+  listDOM.appendChild(nameDOM)
+
+  let priceDOM = document.createElement("div")
+  priceDOM.style = "grid-column: 2 / 3"
+  priceDOM.innerHTML = `$${item.price}`
+  listDOM.appendChild(priceDOM)
+
+  let addTocartDOM = document.createElement("div")
+  addTocartDOM.style = "grid-column: 3 / 4"
+  addTocartDOM.class = "material-icons"
+  addTocartDOM.innnerHTML = "add_shopping_cart"
+  addTocart.addEventLisner("click", ()=>addItemToCart(mycart,item))
+  listDOM.appendChild(addTocartDOM)
+
+
+}
 
 
 
