@@ -65,12 +65,12 @@ for(let i = 0; i < cart.itemAndQuantities.length; i++) {
 
   let quantityDOM = document.createElement("div")
   quantityDOM.style = "grid-column: 1 / 2"
-  quantity.innnerHTML = `${item.quantity} x`
+  quantityDOM.innerHTML = `${item.quantity} x`
   cartDOM.appendChild(quantityDOM)
 
   let nameDOM = document.createElement("div")
   nameDOM.style = "grid-column: 2 / 3"
-  nameDOM.innerHTML = `${item.ite.name}`
+  nameDOM.innerHTML = `${item.item.name}`
   cartDOM.appendChild(nameDOM)
 
   let costDOM = document.createElement("div")
