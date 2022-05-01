@@ -39,6 +39,14 @@ class ShoppingCart {
 
 
 //avairableItem
+let availableItems = [
+  new Item("Strawberry", 1.00),
+  new Item("Blueberry", 2.00),
+  new Item("Rasberry", 3.00),
+  new Item("Hahoberry", 100.00),
+  new Item("Luluberry", 500.00),
+]
 
+let myCart = new ShoppingCart()
 
 //listDOM
