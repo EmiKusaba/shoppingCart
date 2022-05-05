@@ -40,7 +40,18 @@ class ShoppingCart {
     }
     return totalCost
   }
+
 }
+
+//addToCart
+
+const addToCart = (cart, item) => {
+cart.add(item)
+refreshCart(cart)
+}
+
+
+//refreshCart
 
 
 //avairableItem
