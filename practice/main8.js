@@ -44,7 +44,12 @@ for(let i = 0; i < availableItems.length; i++) {
   priceDOM.innerHTML = `${item.item.price}`
   listDOM.appendChild(priceDOM)
 
-  let addToCartDOM = 
+  let addToCartDOM = document.createElement("div")
+  addToCartDOM.style = "grid-column: 3 / 4;"
+  addToCartDOM.className = "material-icons"
+  addToCartDOM.innerHTML = "add_shopping_cart"
+  addToCartDOM.addEventListener("click", ()=>addItemToCart(myCart, item))  
+  listDOM.appendChild(addToCartDOM)
 
 
 }
