@@ -18,8 +18,6 @@ class ItemAndQuantitiy {
 
 
 //availableItems
-
-
 const availableItems = [
   new Item("Coffee", 2.00),
   new Item("Tea", 2.00),
@@ -28,5 +26,27 @@ const availableItems = [
   new Item("Apple Pie", 3.00),
 ]
 
+let myCart = new ShoppingCart
 
 //listDOM
+
+let listDOM = document.getElementById("list")
+for(let i = 0; i < availableItems.length; i++) {
+  const item = availableItems[i]
+
+  let nameDOM = document.createElement("div")
+  nameDOM.style = "grid-column: 1 / 2;"
+  nameDOM.innerHTML = `${item.item.name}`
+  listDOM.appendChild(nameDOM)
+
+  let priceDOM = document.createElement("div")
+  priceDOM.style = "grid-column: 2 / 3;"
+  priceDOM.innerHTML = `${item.item.price}`
+  listDOM.appendChild(priceDOM)
+
+  let addToCartDOM = 
+
+
+}
+
+
