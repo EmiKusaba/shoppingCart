@@ -26,7 +26,7 @@ const availableItems = [
   new Item("Apple Pie", 3.00),
 ]
 
-let myCart = new ShoppingCart
+// let myCart = new ShoppingCart
 
 //listDOM
 
@@ -36,12 +36,12 @@ for(let i = 0; i < availableItems.length; i++) {
 
   let nameDOM = document.createElement("div")
   nameDOM.style = "grid-column: 1 / 2;"
-  nameDOM.innerHTML = `${item.item.name}`
+  nameDOM.innerHTML = `${item.name}`
   listDOM.appendChild(nameDOM)
 
   let priceDOM = document.createElement("div")
   priceDOM.style = "grid-column: 2 / 3;"
-  priceDOM.innerHTML = `${item.item.price}`
+  priceDOM.innerHTML = `${item.price}`
   listDOM.appendChild(priceDOM)
 
   let addToCartDOM = document.createElement("div")
