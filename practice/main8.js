@@ -15,6 +15,10 @@ class ItemAndQuantitiy {
 }
 
 //ShoppingCart
+const ShoppingCart {
+ 
+  
+}
 
 
 //availableItems
