@@ -15,7 +15,10 @@ class ItemAndQuantitiy {
 }
 
 //ShoppingCart
-const ShoppingCart {
+class ShoppingCart {
+  contractor() {
+    this.ItemAndQuantitiy = []
+  }
  
   
 }
