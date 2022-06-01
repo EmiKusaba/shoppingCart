@@ -17,10 +17,30 @@ class ItemAndQuantitiy {
 //ShoppingCart
 class ShoppingCart {
   contractor() {
-    this.ItemAndQuantitiy = []
+    this.itemAndQuantitiies = []
+  }
+
+  add(item){
+    for(let i = 0; i < itemAndQuantitiies.length; i++) {
+      const existingItemAndQuantity = itemAndQuantitiies[i]
+      if(existingItemAndQuantity.item.name === item.name) {
+        existingItemAndQuantity.quantity += 1
+        return 
+      }
+    }
+    this.itemAndQuantitiies.push(
+      new ItemAndQuantitiy(item,1)
+    )
   }
  
-  
+  getTotalCost() {
+    let totalCost = 0
+    for(let i = 0; i < this.itemAndQuantitiies.length; i++) {
+      let itemAndQuantity = this.itemAndQuantitiies[i]
+      totalCost += itemAndQuantity.quantity * itemAndQuantity.item.price
+    }
+    return totalCost
+  }
 }
 
 
