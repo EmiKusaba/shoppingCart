@@ -43,6 +43,12 @@ class ShoppingCart {
   }
 }
 
+const addItemToCart = (cart, item) => {
+  cart.add(item)
+  refreshCart(cart)
+}
+
+
 
 //availableItems
 const availableItems = [
