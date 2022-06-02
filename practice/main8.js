@@ -48,6 +48,18 @@ const addItemToCart = (cart, item) => {
   refreshCart(cart)
 }
 
+//refreshCart
+
+const refreshCart = (cart) => {
+  let cartDOM = document.getElementById("cart")
+  cartDOM.innerHTML = ""
+  for(let i = 0; i < cart.itemAndQuantitiies.length; i++) {
+    const item = cart.itemAndQuantitiies[i]
+
+    
+  }
+}
+
 
 
 //availableItems
